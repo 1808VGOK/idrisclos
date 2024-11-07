@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo em Tela Cheia</title>
+    <style>
+        /* Estilização da tela inicial */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Fundo preto */
+            overflow: hidden;
+        }
+        video {
+            display: none; /* Esconde o vídeo até que o usuário pressione "Enter" */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Vídeo em tela cheia -->
+    <video id="meuVideo" controls>
+        <source src="https://cdn.shopify.com/videos/c/o/v/594b0843968c4c6d8efbb1d3944526a3.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <script>
+        const video = document.getElementById("meuVideo");
+
+        // Detecta a tecla "Enter" e inicia o vídeo em tela cheia
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                video.style.display = "block";      // Exibe o vídeo
+                video.requestFullscreen();          // Inicia em tela cheia
+                video.play();                       // Reproduz o vídeo
+            }
+        });
+
+        // Redireciona para o site ao término do vídeo
+        video.onended = function() {
+            window.location.href = "https://idrisclos.lojavirtualnuvem.com.br";
+        };
+    </script>
+
+</body>
+</html>
